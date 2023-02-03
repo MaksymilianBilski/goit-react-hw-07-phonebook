@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { removeContact } from 'redux/contactsSlice';
+import { removeContact } from 'redux/operation';
 import css from './ContactListItem.module.css';
 
 export const ContactListItem = ({ contact }) => {
@@ -8,6 +8,7 @@ export const ContactListItem = ({ contact }) => {
   const dispatch = useDispatch();
 
   const onContactDelete = id => {
+    console.log(id);
     dispatch(removeContact(id));
   };
 

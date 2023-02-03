@@ -1,17 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilters } from 'redux/filterSlice';
-import { getFilter } from 'redux/selectors';
+import { selectFilter } from 'redux/selectors';
 import css from './SearchForm.module.css';
 
 export const SearchForm = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(getFilter);
+  const filter = useSelector(selectFilter);
 
   const onFilterChange = e => {
     const input = e.target.value;
-    console.log(filter);
-    console.log('input: ', input);
-
     dispatch(setFilters(input));
   };
 

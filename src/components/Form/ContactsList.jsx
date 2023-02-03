@@ -1,11 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { getContacts } from 'redux/selectors';
-import { addContacts } from 'redux/contactsSlice';
+import { selectContacts } from 'redux/selectors';
+import { addContacts } from 'redux/operation';
 import { nanoid } from 'nanoid';
 import css from './Form.module.css';
 
 export const AddContacts = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const onFormSubmit = e => {
@@ -14,7 +14,7 @@ export const AddContacts = () => {
     const name = form.elements.name;
     const number = form.elements.number;
     if (
-      contacts.find(
+      contacts.items.find(
         contact =>
           contact.name === name.value && contact.number === number.value
       )
