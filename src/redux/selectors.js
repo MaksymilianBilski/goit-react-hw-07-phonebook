@@ -11,3 +11,9 @@ export const selectFilter = state => {
   }
   return state.filter;
 };
+
+export const selectFilteredContacts = state => {
+  return state.contacts.items.filter(contact =>
+    contact.name.includes(state.filter)
+  );
+};
