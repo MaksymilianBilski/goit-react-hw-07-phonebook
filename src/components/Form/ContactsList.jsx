@@ -27,7 +27,6 @@ export const AddContacts = () => {
       number: number.value,
       id: nanoid(),
     };
-    //add single contact to local storage
     dispatch(addContacts(contact));
     form.reset();
   };
